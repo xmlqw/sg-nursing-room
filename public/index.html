@@ -1,0 +1,77 @@
+<!-- public/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SG Nursing Rooms Go Where</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+
+    <h1 id="main-heading">Find Public Nursing Rooms in Singapore</h1>
+    
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="addreview.html">Add your review</a>
+        <a href="mailto:lum.xinmun@gmail.com">Contact</a>
+      </div>
+
+      <section class="main-content"><p>When searching for a nursing room in a bustling urban setting, the challenge of finding a comfortable and private space shouldn’t hinder a parent’s day. 
+        Use this web app to easily locate comfortable private spaces in Singapore for feeding and diaper changes!
+        </p></section>
+
+          <div id="searchContainer">
+            <input type="text" id="searchTerm" placeholder="Enter your search term">
+            <button id="searchButton" onclick="search()">Search</button>
+            <div id="searchResults">
+
+            </div>
+          </div>
+
+    <!-- Sample Data -->
+    <script>
+async function search() {
+    // console.log('running search function')
+  const searchTerm = document.getElementById('searchTerm').value;
+  const response = await fetch(`http://localhost:3000/find-nursing-room?mallSearch=${searchTerm}`);
+  const data = await response.json();
+// console.log("searchTerm", searchTerm)
+// console.log("response", response)
+// console.log("data", data)
+
+  // Update UI with search results (replace this with your UI update logic)
+  console.log(data);
+
+  // Get the reference to the placeholder div
+  var placeholderDiv = document.getElementById("searchResults");
+
+  // Check if the placeholder div exists
+  if (!placeholderDiv) {
+    console.error("Placeholder div not found!");
+    return;
+  }
+
+  var html = "<ul>";
+  data.data.forEach(function (obj) {
+    console.log(obj)    
+    html += "<li>"+ "Mall: "+ obj.Mall + "<br />"+ "Address: "+ obj.Address +"<br />" + "</li>"
+    // Add more properties as needed
+  });
+  html += "</ul>";
+  console.log(html)
+
+
+    // Append the generated HTML to the placeholder div
+    placeholderDiv.innerHTML = html;
+}
+      </script>
+
+    <!-- Script -->
+    <iframe src="https://www.google.com/maps/d/embed?mid=1aV_5Ls2NaWKNcT8E0bWbAoIJuXpv_88&ehbc=2E312F" width="100%" height="520" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    
+</body>
+</html>

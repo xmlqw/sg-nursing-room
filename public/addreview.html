@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SG Nursing Rooms Go Where</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="addreview.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+
+<body>
+
+    <section class="hero image-as-background" style="background-image: url('/Users/xinmunlum/Documents/NursingRoomGoWhere/collov-home-design-RE_j7uRsS6E-unsplash.jpg');"></section>
+
+    <h1 id="main-heading">Find Public Nursing Rooms in Singapore</h1>
+    
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="addreview.html">Add your review</a>
+        <a href="mailto:lum.xinmun@gmail.com">Contact</a>
+    </div>
+
+    <div class="container">
+        <h2>Submit your review of a public nursing room</h2>
+    
+        <form id="feedbackForm" action="#" method="post">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+    
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+    
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+    
+            <label for="feedback">Other remarks:</label>
+            <textarea id="feedback" name="feedback" rows="4" required></textarea>
+    
+            <label for="cleanliness">Cleanliness (1 to 5):</label>
+            <input type="range" id="cleanliness" name="cleanliness" min="1" max="5" step="1" value="3"> <br>
+    
+            <label for="comfort">Comfort (1 to 5):</label>
+            <input type="range" id="comfort" name="comfort" min="1" max="5" step="1" value="3"> <br>
+    
+            <label for="privacy">Privacy (1 to 5):</label>
+            <input type="range" id="privacy" name="privacy" min="1" max="5" step="1" value="3"> <br>
+    
+            <label for="accessibility">Accessibility (1 to 5):</label>
+            <input type="range" id="accessibility" name="accessibility" min="1" max="5" step="1" value="3"> <br>
+    
+            <label for="amenities">Amenities (1 to 5):</label>
+            <input type="range" id="amenities" name="amenities" min="1" max="5" step="1" value="3"> <br>
+    
+            <label for="image">Choose an image:</label>
+            <input type="file" id="image" name="image" accept="image/*" onchange="previewImage()">
+            <br>
+            <p><img id="preview" src="" alt="Image Preview"></p> <br>
+    
+            <button type="submit">Submit your review</button>
+        </form>
+    </div>
+
+</body>
+</html>
