@@ -24,13 +24,14 @@
         Use this web app to easily locate comfortable private spaces in Singapore for feeding and diaper changes!
         </p></section>
 
-          <div id="searchContainer">
-            <input type="text" id="searchTerm" placeholder="Enter your search term">
+        <div id="searchContainer" class="searchContainer">
+            <input type="text" id="searchTerm" placeholder="Search for malls">
             <button id="searchButton" onclick="search()">Search</button>
             <div id="searchResults">
 
             </div>
           </div>
+
 
     <!-- Sample Data -->
     <script>
@@ -55,10 +56,10 @@ async function search() {
     return;
   }
 
-  var html = "<ul>";
+  var html = "<ul style='list-style-type: none;'>"
   data.data.forEach(function (obj) {
     console.log(obj)    
-    html += "<li>"+ "Mall: "+ obj.Mall + "<br />"+ "Address: "+ obj.Address +"<br />" + "</li>"
+    html += "<li style='font-family: 'Playfair Display', sans-serif; font-size: 18px;'>"+ "Mall: "+ obj.Mall + "<br />"+ "Address: "+ obj.Address +"<br />" + "Location: "+ obj.Location +"<br />" + "Rating: "+ obj.Rating+"<br />" + "Cleanliness: "+ obj.Cleanliness +"<br />" + "Comfort: "+ obj.Comfort +"<br />" + "Privacy: "+ obj.Privacy +"<br />" + "Accessibility: "+ obj.Accessibility +"<br />" + "Amenities: "+ obj.Amenities +"<br />" +"</li>"
     // Add more properties as needed
   });
   html += "</ul>";
@@ -68,6 +69,7 @@ async function search() {
     // Append the generated HTML to the placeholder div
     placeholderDiv.innerHTML = html;
 }
+
       </script>
 
     <!-- Script -->
