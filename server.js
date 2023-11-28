@@ -17,12 +17,10 @@ const PORT = process.env.PORT || 3000;
 const DB_URL = process.env.MONGODB_URI
 
 const client = new MongoClient(DB_URL, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-})
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
 
 void client.db("Cluster0")
 .command({ ping: 1 })
