@@ -1,3 +1,4 @@
+
 const dotenv = require('dotenv')
 dotenv.config();
 
@@ -8,6 +9,8 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const app = express();
 app.use(cors())
+app.use(express.static('public'))
+
 const PORT = process.env.PORT || 3000;
 
 // MongoDB Connection
@@ -19,7 +22,11 @@ const client = new MongoClient(DB_URL, {
     strict: true,
     deprecationErrors: true,
   }
-});
+})
+
+void client.db("Cluster0")
+.command({ ping: 1 })
+.then(() => console.log("Pinged your deployment. You successfully connected to MongoDB!"))
 
 // db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 // db.once('open', () => {
@@ -28,9 +35,7 @@ const client = new MongoClient(DB_URL, {
 
 // Express Routes
 app.get('/', async (req, res) => {
-  await client.db("Cluster0").command({ ping: 1 });
-  console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  res.send('Welcome to my app!');
+  res.send("Welcome to Nursing Room");
 });
 
 app.get('/find-nursing-room', async (req, res) => {
@@ -40,9 +45,8 @@ app.get('/find-nursing-room', async (req, res) => {
 
   // Fetch data from MongoDB
   const collection = client.db("nursingdatabase").collection("nursingdatabase")
-  const cursor = collection.find({ "Mall": {$regex: mallSearch, $options: "i"} })
+  const cursor = collection.find({ "Mall": { $regex: mallSearch, $options: "i"} })
   const allValues = await cursor.toArray()
-
 
   res.json({ data: allValues});
 });

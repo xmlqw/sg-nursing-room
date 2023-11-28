@@ -13,7 +13,7 @@
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 34px;
   margin-bottom: 10px;
 }
 
@@ -44,7 +44,7 @@ h1 {
 .main-content p {
   color: #25373D;
   font-family: 'Playfair Display', sans-serif; /* Replace 'Your Font Name' with the desired font */
-  font-size: 22px;
+  font-size: 19px;
   line-height: 1.5;
 }
 
