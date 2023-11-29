@@ -49,7 +49,8 @@
 async function search() {
     // console.log('running search function')
   const searchTerm = document.getElementById('searchTerm').value;
-  const response = await fetch(`https://www.singaporenursingroom.com/find-nursing-room?mallSearch=${searchTerm}`);
+  // const response = await fetch(`https://www.singaporenursingroom.com/find-nursing-room?mallSearch=${searchTerm}`);
+  const response = await fetch(`https://sg-nursing-room-8533af195bd1.herokuapp.com/find-nursing-room?mallSearch=${searchTerm}`);
   const data = await response.json();
 // console.log("searchTerm", searchTerm)
 // console.log("response", response)

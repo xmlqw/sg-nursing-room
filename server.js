@@ -33,7 +33,8 @@ void client.db("Cluster0")
 
 // Express Routes
 app.get('/', async (req, res) => {
-  res.send("Welcome to Nursing Room");
+  // res.send("Welcome to Nursing Room");
+  res.render('index')
 });
 
 app.get('/find-nursing-room', async (req, res) => {
